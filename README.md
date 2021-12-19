@@ -1,3 +1,4 @@
+-----------
 # Zip
 Compression of multiple files.
 
@@ -8,7 +9,5 @@ Compression of multiple files.
 4. Write the file paths into it on each line.
 5. Open the zip.txt file with zip.exe.
 6. Get your zip file (zip.zip).
---
 
-
-
+-----------
