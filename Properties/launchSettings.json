@@ -1,8 +1,7 @@
 {
   "profiles": {
     "zip": {
-      "commandName": "Project",
-      "commandLineArgs": "fhghfg fghhfghg fghhfghfgfghhgf"
+      "commandName": "Project"
     }
   }
 }
