@@ -33,12 +33,17 @@ namespace zip
             string NameZip = "ZepZip";
             foreach (string File in Files)
             {
-                if (System.IO.File.Exists(File))
+                if (File[0] == '#')
+                {
+                    continue;
+                }
+                else if (System.IO.File.Exists(File))
                 {
                     System.IO.File.Copy(File, Path.Combine(Temp, Path.GetFileName(File)));
 
                     NameZip = Path.GetFileName(File);
-                } else if (Directory.Exists(File.Split(" => ")[0]))
+                } 
+                else if (Directory.Exists(File.Split(" => ")[0]))
                 {
                     string[] _File = File.Split(" => ");
 
