@@ -10,4 +10,11 @@ Compression of multiple files.
 5. Open the zip.txt file with zip.exe.
 6. Get your zip file (zip.zip).
 
+# Sample zip.txt file
+##### <a name="zip.txt">
+    #Adds the folder "D:\Folder" to the "Folder" in the archive (be sure to include "=>" between them, otherwise it will not copy)
+    D:\Folder => Folder
+    #Adds "D: \ Zip.exe" to the archive. ("=>" is not necessary)
+    D:\Zip.exe
+</a>
 -----------
