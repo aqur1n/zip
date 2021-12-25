@@ -22,6 +22,8 @@ Compression of multiple files.
 ##### <a name="zip.txt">
     #Adds the folder "D:\Folder" to the "Folder" in the archive (be sure to include "=>" between them, otherwise it will not copy)
     D:\Folder => Folder
-    #Adds "D: \ Zip.exe" to the archive. ("=>" is not necessary)
+    #Adds "D:\Zip.exe" to the archive. 
     D:\Zip.exe
+    #Adds "D:\Zip.exe" to the archive in the "Copy" folder
+    D:\Zip.exe => Copy
 </a> 
