@@ -33,23 +33,46 @@ namespace zip
             string NameZip = "ZepZip";
             foreach (string File in Files)
             {
+                string[] _File = File.Split(" => ");
+
                 if (File[0] == '#')
                 {
                     continue;
                 }
-                else if (System.IO.File.Exists(File))
+                else if (System.IO.File.Exists(_File[0]))
                 {
-                    System.IO.File.Copy(File, Path.Combine(Temp, Path.GetFileName(File)));
+                    if (_File[1] != null)
+                    {
+                        if (!Directory.Exists(Path.Combine(Temp, Path.GetDirectoryName(_File[1]))))
+                        {
+                            Directory.CreateDirectory(Path.Combine(Temp, Path.GetDirectoryName(_File[1])));
+                        }
+                        if (Path.GetFileName(_File[1]) != null)
+                        {
+                            System.IO.File.Copy(_File[0], Path.Combine(Path.Combine(Temp, Path.GetDirectoryName(_File[1])), Path.GetFileName(_File[1])), true);
+                        }
+                        else
+                        {
+                            System.IO.File.Copy(_File[0], Path.Combine(Path.Combine(Temp, Path.GetDirectoryName(_File[1])), Path.GetFileName(_File[0])), true);
+                        }
+                    }
+                    else
+                    {
+                        System.IO.File.Copy(_File[0], Path.Combine(Temp, Path.GetFileName(_File[0])), true);
+                    }
 
-                    NameZip = Path.GetFileName(File);
+                    NameZip = Path.GetFileName(_File[0]);
                 } 
-                else if (Directory.Exists(File.Split(" => ")[0]))
+                else if (Directory.Exists(_File[0]))
                 {
-                    string[] _File = File.Split(" => ");
-
-                    Directory.CreateDirectory(Path.Combine(Temp, _File[1]));
+                    try
+                    {
+                        Directory.CreateDirectory(Path.Combine(Temp, _File[1]));
+                    }
+                    catch { }
                     DirectoryCopy(_File[0], Path.Combine(Temp, _File[1]));
                 }
+                Console.WriteLine(File);
             }
 
             if (File.Exists(Directory.GetCurrentDirectory() + "/" + NameZip + ".zip"))
@@ -59,6 +82,7 @@ namespace zip
             ZipFile.CreateFromDirectory(Temp, Directory.GetCurrentDirectory() + "/" + NameZip + ".zip");
             Directory.Delete(Temp, true);
 
+            Console.ReadKey();
             Environment.Exit(0);
         }
 
