@@ -25,5 +25,5 @@ Compression of multiple files.
     #Adds "D:\Zip.exe" to the archive. 
     D:\Zip.exe
     #Adds "D:\Zip.exe" to the archive in the "Copy" folder
-    D:\Zip.exe => Copy
+    D:\Zip.exe => Copy\Zip.exe
 </a> 
